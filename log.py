@@ -1,15 +1,11 @@
-def loger1(name, last_name, phone_number, description):
-    with open('file1.txt', 'a') as data:
-        name = name + '\n'
-        last_name = last_name + '\n'
-        phone_number = phone_number + '\n'
-        description = description + '\n'
-        data.write(name, last_name, phone_number, description)
+from data_enter import indata
 
-def loger2(name, last_name, phone_number, description):
-    with open('file2.txt', 'a') as data:
-        name = name + ' ;'
-        last_name = last_name + ' ;'
-        phone_number = phone_number + ' ;'
-        description = description + ' ;'
-        data.write(name, last_name, phone_number, description)
+input = indata()
+
+def loger_csv():
+    with open('Phonebook1.csv', 'a', encoding = 'utf-8') as data:
+        data.write(f'{input[0]};{input[1]};{input[2]};{input[3]}\n')
+
+def loger_txt():
+    with open('Phonebook2.txt', 'a', encoding = 'utf-8') as data:
+        data.write(f'Фамилия: {input[0]}\nИмя: {input[1]}\nНомер телефона: {input[2]}\nОписание: {input[3]}\n\n')
